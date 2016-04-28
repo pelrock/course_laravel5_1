@@ -46,6 +46,11 @@ Route::post('password/email', 'Auth\PasswordController@postEmail');
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 
+Route::get('account/password', 'AccountController@getPassword');
+Route::post('account/password', 'AccountController@postPassword');
+
+Route::get('account/edit-profile', 'AccountController@editProfile');
+Route::post('account/edit-profile', 'AccountController@updateProfile');
 
 //only register users
 Route::group(['middleware'=>'auth'], function (){

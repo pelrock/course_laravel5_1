@@ -17,14 +17,7 @@ class MenuTest extends TestCase
         //guest users
         $this->visit('/')->dontsee('Account');
         // register users
-        $user=factory(App\User::class)->create([
-            'name'=>'Pelrock',
-            'username' => 'pelrock',
-            'email'=>'pelrock@pelrock.com',
-            'role'=>'admin',
-            'password'=>bcrypt('almasa'),
-            'active'=> true
-        ]);
+        $user=$this->createUser();
         
         $this->actingAs($user)
              ->visit('/')
