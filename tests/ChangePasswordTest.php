@@ -26,7 +26,7 @@ class ChangePasswordTest extends TestCase
             ->see('Your password has been change');
         
         $this->assertTrue(
-            Hash::check('newpassword', $user->password),
+            Hash::check('newpasword', $user->password),
             'The user password was not changed'
         );
     }
