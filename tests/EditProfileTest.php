@@ -13,18 +13,19 @@ class EditProfileTest extends TestCase
     public function testEditProfile()
     {
         $user=$this->createUser();
+        
         $this->actingAs($user)
             ->visit('account')
             ->click('Edit profile')
             ->seePageIs('account/edit-profile')
-            ->type('Pelrock', 'name')
+            ->type('Pelrock1', 'name')
             ->press('Update profile')
             ->seePageIs('account')
             ->see('Your profile has been updatede')
             ->seeInDatabase('users', [
                 'email'=>$user->email,
-                'name'=>'Pelrock'
-            ]});
+                'name'=>'Pelrock1'
+            ]);
     }
 
 
