@@ -7,6 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Change your password</div>
                     <div class="panel-body">
+                        @include('partials/success')
                         <form method="POST" action="{{ url('account/password') }}">
                             {!! csrf_field() !!}
                             <input type="text" name="current_password">
