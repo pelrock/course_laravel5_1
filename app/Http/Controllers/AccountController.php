@@ -35,7 +35,14 @@ class AccountController extends Controller
         return redirect('account')
            ->with('alert', 'Your password has been changed');
     }
+    public function editProfile()
+    {
 
+    }
+    public function  updateProfile()
+    {
+        
+    }
         
 
 }

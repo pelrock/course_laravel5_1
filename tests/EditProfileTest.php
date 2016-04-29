@@ -21,7 +21,7 @@ class EditProfileTest extends TestCase
             ->type('Pelrock1', 'name')
             ->press('Update profile')
             ->seePageIs('account')
-            ->see('Your profile has been updatede')
+            ->see('Your profile has been updated')
             ->seeInDatabase('users', [
                 'email'=>$user->email,
                 'name'=>'Pelrock1'
