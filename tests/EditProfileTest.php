@@ -13,11 +13,11 @@ class EditProfileTest extends TestCase
     public function testEditProfile()
     {
         $user=$this->createUser();
-        
         $this->actingAs($user)
             ->visit('account')
             ->click('Edit profile')
             ->seePageIs('account/edit-profile')
+            ->seeInField('name', 'Pelrock22')
             ->type('Pelrock1', 'name')
             ->press('Update profile')
             ->seePageIs('account')
