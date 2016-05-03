@@ -32,4 +32,18 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
             'active'=> true
         ]);
     }
+
+    public function seeInField($selector, $expected)
+    {
+        $field=$this->filterByNameOrId($selector);
+        $element=$field->nodeName();
+        if ($element== 'input') {
+            $current=$field->attr('value');
+        } elseif ($element== 'textarea'){
+            $current=$field->text();
+        } else {
+            throw new \Exception("[$selector] Is neither an input nor a textarea");
+        }
+
+    }
 }
