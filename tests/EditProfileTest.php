@@ -17,14 +17,15 @@ class EditProfileTest extends TestCase
             ->visit('account')
             ->click('Edit profile')
             ->seePageIs('account/edit-profile')
-            ->type('Pelrock', 'name')
+            ->seeInField('name', 'Pelrock22')
+            ->type('Pelrock1', 'name')
             ->press('Update profile')
             ->seePageIs('account')
-            ->see('Your profile has been updatede')
+            ->see('Your profile has been updated')
             ->seeInDatabase('users', [
                 'email'=>$user->email,
-                'name'=>'Pelrock'
-            ]});
+                'name'=>'Pelrock1'
+            ]);
     }
 
 

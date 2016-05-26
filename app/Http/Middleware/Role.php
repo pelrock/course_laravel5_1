@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\AccessHandler;
 use Closure;
 
 class Role
@@ -14,16 +15,12 @@ class Role
      * @return mixed
      */
 
-    protected $hierarchy=[
-        'admin'     => 100,
-        'editor'    => 50,
-        'user'      => 10
-    ];
+    
 
     public function handle($request, Closure $next, $role)
     {
         $user = auth()->user();
-        if ($this->hierarchy[$user->role] < $this->hierarchy[$role]) {
+        if (! AccessHandler::check($user->role, $role)) {
             abort(404);
         }
         return $next($request);
